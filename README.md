@@ -4,8 +4,8 @@ Bowling Challenge - JavaScript
 
 ## The Task
 
-**This is primarily a bowling scorecard challenge**
-**Secondary is to create a game from the command line using random rolls**
+- **This is primarily a bowling scorecard challenge**
+- **Secondary is to create a game from the command line using random rolls**
 
 - Count and sum the scores of a bowling game for one player (in JavaScript).
 
