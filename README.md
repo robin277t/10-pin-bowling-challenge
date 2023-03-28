@@ -1,5 +1,5 @@
 
-Bowling Challenge - JavaScript & Ruby
+Bowling Challenge - Ruby
 =================
 
 ## The Task
