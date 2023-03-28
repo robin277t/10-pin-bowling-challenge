@@ -16,15 +16,10 @@ Bowling Challenge - JavaScript & Ruby
 
 ## To Run this App
 
-**- If in Javascript:**
-- npm install (assuming node is installed)
-- run with command 'node bowling.js' 
-- to run tests use command 'jest --coverage'
-
-**- If in Ruby:**
+**- In Ruby:**
 - bundle install (assuming ruby is installed)
-- run with command 'ruby bowling.rb'
-- to run tests use command 'rspec'
+- change into sub folder './ruby' and run with command 'ruby bowling.rb'
+- to run tests use command 'rspec', again in sub-folder './ruby'
 
 ## Bowling — how does it work?
 
