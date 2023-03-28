@@ -1,5 +1,5 @@
 
-Bowling Challenge - JavaScript
+Bowling Challenge - JavaScript & Ruby
 =================
 
 ## The Task
@@ -8,7 +8,7 @@ Bowling Challenge - JavaScript
 
 - Secondary is to create a game from the command line using random rolls
 
-- Count and sum the scores of a bowling game for one player (in JavaScript).
+- Count and sum the scores of a bowling game for one player.
 
 - Create lean code, with classes and methods with clear responsibilities.
 
@@ -16,8 +16,15 @@ Bowling Challenge - JavaScript
 
 ## To Run this App
 
+**- If in Javascript:**
 - npm install (assuming node is installed)
 - run with command 'node bowling.js' 
+- to run tests use command 'jest --coverage'
+
+**- If in Ruby:**
+- bundle install (assuming ruby is installed)
+- run with command 'ruby bowling.rb'
+- to run tests use command 'rspec'
 
 ## Bowling — how does it work?
 
@@ -43,5 +50,14 @@ A Gutter Game is when the player never hits a pin (20 zero scores).
 ### Perfect Game
 
 A Perfect Game is when the player rolls 12 strikes (10 regular strikes and 2 strikes for the bonus in the 10th frame). The Perfect Game scores 300 points.
+
+## My Approach:
+
+- Bowling game score will be input as a single array of integers, each representing the pins knocked down in consecutive throws, exactly as the sequence proceeds in real life (ie a sequence of 1 normal frame, followed by a strike, followed by a spare, followed by a normal frame would read [5,3,10,4,6,3,2])
+- Object: Class: CalculateScorecard created to calculate the players' total score from their throw sequence array.
+- Object: Class: GameGenerator created to use random throws to simulate a game and create sequence array
+- Object: Class: ScorePrinter created to output to terminal the full scorecard and running totals as would be seen by a player in real life
+- Object: Class: bowling created as the interface for a command line app that runs/scores the game
+
 
 

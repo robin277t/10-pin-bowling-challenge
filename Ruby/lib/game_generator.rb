@@ -2,10 +2,10 @@ class GameGenerator
 
   def initialize
     @game_array = []
-    create_game_array
   end
 
-  def get_game 
+  def get_game
+    create_game_array 
     @game_array
   end
 

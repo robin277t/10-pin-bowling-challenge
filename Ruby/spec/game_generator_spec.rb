@@ -1,6 +1,6 @@
 require_relative "../lib/game_generator"
 
-RSpec.describe "Unit test Block 2:" do
+RSpec.describe "Unit test Block 2: GameGenerator class" do
 
   let(:new_game) {GameGenerator.new}
 
@@ -19,6 +19,9 @@ RSpec.describe "Unit test Block 2:" do
         expect(throw).to be_between(0,10).inclusive
       end
     end
+  end
+
+  context "Frame 10 different behaviour" do
     it "calls bonify_frame10 if the last two throws sum to 10 or more" do
       allow(new_game).to receive(:generate_random_rolls).and_return(5)
       new_game.instance_variable_set(:@game_array, [0] * 18 + [5, 5])

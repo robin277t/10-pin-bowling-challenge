@@ -1,43 +1,34 @@
-class ScorecardCalculator 
-  attr_accessor :frames
+class ScorecardCalculator
 
-  def initialize
-    @frames = []
+  def initialize(throws_array)
+    @throws = throws_array
+    @cumulative_totals = []
+    calculate_total
   end
 
-  def add_bonus_scores
-    @frames.each_with_index do |frame, index| 
-      if frame.round == 10
-          break
+  def get_game_total
+    @cumulative_totals[-1]
+  end
+
+  def get_cumulative_totals
+    @cumulative_totals
+  end
+
+  private
+
+  def calculate_total
+    go = 0
+    running_total = 0
+    10.times do
+      if @throws[go] + @throws[go + 1] < 10
+        running_total += (@throws[go] + @throws[go + 1])
+      else
+        running_total += (@throws[go] + @throws[go + 1] + @throws[go + 2])
       end
-      if frame.go1 + frame.go2 == 10 && frame.go1 < 10
-          frame.total = frame.go1 + frame.go2 + @frames[index +1].go1
-      elsif frame.go1 == 10 && (@frames[index +1].go1 < 10 || frame.round == 9)
-          frame.total = frame.go1 + @frames[index +1].go1 + @frames[index +1].go2
-      elsif frame.go1 == 10 && @frames[index +1].go1 == 10 && frame.round < 9
-          frame.total = frame.go1 + @frames[index +1].go1 + @frames[index +2].go1
-      end
+      go -= 1 if @throws[go] == 10
+      go += 2
+      @cumulative_totals << running_total
     end
   end
-
-  def generate_printable_scorecard
-    header = '|'
-    individual_rolls = ''
-    cumulative_round_total = 0
-    cumulative_round_total_string = ''
-    @frames.each_with_index do |frame, index| 
-      header += " --#{index + 1}-- |"
-      individual_rolls += "|  #{frame.print1} #{frame.print2} #{frame.print3} "
-      # individual_rolls += "|  #{frame.go1} #{frame.go2}  " #THESE 2 LINES CAN BE USED INSTEAD OF THE ONE ABOVE IF NO SYMBOLS ARE DESIRED
-      # individual_rolls += "#{frame.go3} |" if index == 9 #THESE 2 LINES CAN BE USED INSTEAD OF THE ONE ABOVE IF NO SYMBOLS ARE DESIRED
-      cumulative_round_total += frame.total
-      cumulative_round_total_string += "|   #{cumulative_round_total}  "
-    end 
-    "#{header}\n#{individual_rolls}\n#{cumulative_round_total_string}"
-  end
-
+  
 end
-
-
-
-
